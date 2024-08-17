@@ -66,7 +66,7 @@ async def shorten_url(url: str = Form(...), expiry: str = Form(...)):
 
 
 @app.get("/{short_url}")
-async def redirect_to_original(short_url: str):
+async def redirect_to_original(request: Request, short_url: str):
     url_data = url_store.get(short_url)
     if url_data:
         if url_data["expiry"] is None or datetime.now() < url_data["expiry"]:
@@ -74,7 +74,7 @@ async def redirect_to_original(short_url: str):
         else:
             # Remove expired URL
             del url_store[short_url]
-            raise HTTPException(status_code=404, detail="Short URL has expired")
+            return templates.TemplateResponse("expired.html", {"request": request})
     else:
         raise HTTPException(status_code=404, detail="Short URL not found")
 
