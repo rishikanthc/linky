@@ -79,15 +79,15 @@ async def redirect_to_original(request: Request, short_url: str):
         raise HTTPException(status_code=404, detail="Short URL not found")
 
 
-class LinkyServer:
+class LinkServer:
     @staticmethod
     def run(host: str = "0.0.0.0", port: int = 8000, reload: bool = True):
         """Run the FastAPI server using Uvicorn."""
-        uvicorn.run("linky.app:app", host=host, port=port, reload=reload)
+        uvicorn.run("link.app:app", host=host, port=port, reload=reload)
 
 
 def main():
-    fire.Fire(LinkyServer)
+    fire.Fire(LinkServer)
 
 
 if __name__ == "__main__":

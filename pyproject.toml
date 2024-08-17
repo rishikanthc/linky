@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "linky"
+name = "shortlinks"
 version = "0.1.0"
 description = "Self hostable url shortener"
 authors = ["rishikanthc <r3chandr@ucsd.edu>"]
