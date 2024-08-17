@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "linky"
+version = "0.1.0"
+description = "Self hostable url shortener"
+authors = ["rishikanthc <r3chandr@ucsd.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+loguru = "^0.7.2"
+fire = "^0.6.0"
+fastapi = { extras = ["standard"], version = "^0.112.1" }
+
+[tool.poetry.group.dev.dependencies]
+basedpyright = "*"
+ruff = "*"
+pre-commit = "*"
+pytest = "*"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pyright]
+venvPath = "/Users/rishi/miniconda3/envs"
+venv = "linky"
+useLibraryCodeForTypes = true
+typeCheckingMode = "standard"
+reportUnusedImport = "warning"
+reportUnusedVariable = "warning"
+reportDuplicateImport = "error"
+reportPrivateUsage = "warning"
+reportDeprecated = "warning"
+reportInconsistentConstructor = "error"
+reportMissingSuperCall = "error"
+reportUninitializedInstanceVariable = "error"
+reportUnnecessaryCast = "warning"
+reportUnnecessaryComparison = "warning"
+reportImplicitStringConcatenation = "warning"
+diagnosticMode = "openFilesOnly"
+
+[tool.poetry.scripts]
+linky = "linky.app:main"
