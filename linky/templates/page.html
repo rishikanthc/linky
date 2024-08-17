@@ -11,10 +11,11 @@
   <script>
     async function shortenUrl() {
       const url = document.getElementById('url-input').value;
+      const expiry = document.getElementById('expiry-select').value;
       const response = await fetch('/shorten', {
         method: 'POST',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: new URLSearchParams({url: url})
+        body: new URLSearchParams({url: url, expiry: expiry})
       });
       const data = await response.json();
       // Show the popup with the shortened URL
@@ -25,7 +26,6 @@
       popup.style.display = 'block';
       overlay.style.display = 'block';
     }
-
     function copyToClipboard() {
       const url = document.getElementById('popup-url').textContent;
       navigator.clipboard.writeText(url).then(function () {
@@ -34,7 +34,6 @@
         console.error('Failed to copy: ', err);
       });
     }
-
     function closePopup() {
       const popup = document.getElementById('popup');
       const overlay = document.getElementById('overlay');
@@ -42,12 +41,19 @@
       overlay.style.display = 'none';
     }
   </script>
+</head>
 
 <body>
   <div class="main">
     <div class="title">Linky</div>
     <div class="url-input-container">
       <input type="text" id="url-input" class="url-input" placeholder="Enter URL here..." />
+      <select id="expiry-select" class="expiry-select">
+        <option value="30">30 seconds</option>
+        <option value="60">60 seconds</option>
+        <option value="180">3 minutes</option>
+        <option value="never">Never expire</option>
+      </select>
       <button class="generate-btn" onclick="shortenUrl()">Generate</button>
     </div>
   </div>

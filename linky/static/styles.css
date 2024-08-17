@@ -15,11 +15,13 @@ body {
   height: 100vh;
   background-color: #f0f0f0;
 }
+
 .title {
   font-size: 2.5rem;
   margin-bottom: 20px;
   font-family: "Megrim", sans-serif;
 }
+
 .url-input-container {
   display: flex;
   justify-content: center;
@@ -27,6 +29,7 @@ body {
   width: 100%;
   max-width: 600px;
 }
+
 .url-input {
   flex: 1;
   padding: 12px 16px;
@@ -34,11 +37,29 @@ body {
   border-radius: 5px 0 0 5px;
   font-size: 1rem;
   outline: none;
-  font-family: "IBM Plex Serif", serif;
+  font-family: "IBM Plex Sans", sans-serif;
 }
+
 .url-input:focus {
   border-color: #007bff;
 }
+
+.expiry-select {
+  padding: 11px 16px;
+  border: 2px solid #ccc;
+  border-left: none;
+  background-color: white;
+  font-size: 1rem;
+  font-family: "IBM Plex Serif", serif;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.expiry-select:focus {
+  border-color: #007bff;
+}
+
 .generate-btn {
   padding: 12px 16px;
   border: 2px solid #007bff;
@@ -49,10 +70,13 @@ body {
   font-size: 1rem;
   cursor: pointer;
   font-family: "IBM Plex Serif", serif;
+  transition: background-color 0.3s ease;
 }
+
 .generate-btn:hover {
   background-color: #0056b3;
 }
+
 /* Popup styling */
 .popup {
   display: none;
@@ -67,11 +91,13 @@ body {
   text-align: center;
   z-index: 1000;
 }
+
 .popup-content {
   margin-bottom: 10px;
   font-size: 1.2rem;
   font-family: "IBM Plex Serif", serif;
 }
+
 .popup-url {
   display: inline-block;
   padding: 10px;
@@ -81,6 +107,7 @@ body {
   font-size: 1rem;
   word-break: break-all;
 }
+
 .copy-btn {
   padding: 8px 12px;
   background-color: #007bff;
@@ -91,10 +118,13 @@ body {
   cursor: pointer;
   margin-left: 10px;
   font-family: "IBM Plex Serif", serif;
+  transition: background-color 0.3s ease;
 }
+
 .copy-btn:hover {
   background-color: #0056b3;
 }
+
 .popup-close {
   padding: 6px 12px;
   background-color: #555;
@@ -105,10 +135,13 @@ body {
   cursor: pointer;
   margin-top: 10px;
   font-family: "IBM Plex Serif", serif;
+  transition: background-color 0.3s ease;
 }
+
 .popup-close:hover {
   background-color: #333;
 }
+
 /* Overlay */
 .overlay {
   display: none;
@@ -119,4 +152,32 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .url-input-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .url-input,
+  .expiry-select,
+  .generate-btn {
+    width: 100%;
+    margin: 5px 0;
+    border-radius: 5px;
+  }
+
+  .url-input {
+    border-right: 2px solid #ccc;
+  }
+
+  .expiry-select {
+    border-left: 2px solid #ccc;
+  }
+
+  .generate-btn {
+    border-left: 2px solid #007bff;
+  }
 }
