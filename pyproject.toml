@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "shortlinks"
-version = "0.1.0"
+version = "0.1.1"
 description = "Self hostable url shortener"
 authors = ["rishikanthc <r3chandr@ucsd.edu>"]
 readme = "README.md"
@@ -41,4 +41,4 @@ reportImplicitStringConcatenation = "warning"
 diagnosticMode = "openFilesOnly"
 
 [tool.poetry.scripts]
-linky = "linky.app:main"
+shortlinks = "shortlinks.app:main"

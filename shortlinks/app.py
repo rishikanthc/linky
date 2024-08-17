@@ -83,7 +83,7 @@ class LinkServer:
     @staticmethod
     def run(host: str = "0.0.0.0", port: int = 8000, reload: bool = True):
         """Run the FastAPI server using Uvicorn."""
-        uvicorn.run("link.app:app", host=host, port=port, reload=reload)
+        uvicorn.run("shortlinks.app:app", host=host, port=port, reload=reload)
 
 
 def main():
